@@ -13,7 +13,6 @@ public class Bioskop {
         this.nama = nama;
         this.daftarStudio = new Studio[jumlahStudio];
 
-        // Composition: Bioskop membuat objek Studio
         for (int i = 0; i < jumlahStudio; i++) {
             daftarStudio[i] =
                 new Studio(i + 1, kapasitas);
@@ -24,12 +23,10 @@ public class Bioskop {
         this.manajer = manajer;
     }
 
-    // Overloading: penjualan ke Studio 1
     public void jualTiket(Tiket tiket) {
         jualTiket(tiket, 1);
     }
 
-    // Overloading: penjualan ke studio tertentu
     public void jualTiket(Tiket tiket, int nomorStudio) {
         Studio studio = getStudio(nomorStudio);
 

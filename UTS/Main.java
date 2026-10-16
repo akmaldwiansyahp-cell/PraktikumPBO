@@ -2,30 +2,43 @@ package UTS;
 
 public class Main {
     public static void main(String[] args) {
-        Manajer manajer = new Manajer("Andi");
-        Penonton penonton = new Penonton("Budi", "08123456789");
 
-        TiketReguler reguler = new TiketReguler(
-            "T001", "Laskar Pelangi", 40000, true
-        );
 
-        TiketVIP vip = new TiketVIP(
-            "T002", "Laskar Pelangi", 40000
-        );
+        Bioskop bioskop =
+            new Bioskop("Sinema Malang", 3, 50);
 
-        reguler.setPemilik(penonton);
-        vip.setPemilik(penonton);
+        bioskop.setManajer(new Manajer("Pak Hadi"));
 
-        Bioskop bioskop = new Bioskop("Cinema Jaya", 2, 50);
-        bioskop.setManajer(manajer);
 
-        bioskop.jualTiket(reguler, 1);
+        Penonton andi =
+            new Penonton("Andi", "081234567890");
+
+        Penonton sinta =
+            new Penonton("Sinta", "081234567891");
+
+
+        TiketReguler reguler = new TiketReguler("T-001", "Laskar Pelangi", 40000, true);
+
+        TiketVIP vip = new TiketVIP("T-002", "Laskar Pelangi", 40000);
+
+        reguler.setPemilik(andi);
+        vip.setPemilik(sinta);
+
+
+        bioskop.jualTiket(reguler);
         bioskop.jualTiket(vip, 1);
+        bioskop.jualTiket(vip, 4);
 
-        MesinCetak mesin = new MesinCetak("M001");
-        mesin.cetak(reguler);
-        mesin.cetak(vip);
 
-        bioskop.tampilInfo();
+        Studio studio1 = bioskop.getStudio(1);
+
+        System.out.println(
+            "Pendapatan Studio 1: "
+            + studio1.hitungPendapatan()
+        );
+
+        Tiket t = new TiketVIP("T-099", "Dilan", 50000);
+
+        System.out.println("Harga Tiket: "t.hitungHarga());
     }
 }
