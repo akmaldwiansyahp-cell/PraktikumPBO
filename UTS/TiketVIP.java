@@ -2,11 +2,7 @@ package UTS;
 
 public class TiketVIP extends Tiket {
 
-    public TiketVIP(
-            String kode,
-            String judulFilm,
-            int hargaDasar) {
-
+    public TiketVIP(String kode, String judulFilm,int hargaDasar) {
         super(kode, judulFilm, hargaDasar);
     }
 

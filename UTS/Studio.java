@@ -36,9 +36,4 @@ public class Studio {
     public int getNomor() {
         return nomor;
     }
-
-    public int getKapasitas() {
-        return kapasitas;
-    }
-
 }

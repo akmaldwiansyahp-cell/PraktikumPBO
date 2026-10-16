@@ -3,12 +3,7 @@ package UTS;
 public class TiketReguler extends Tiket {
     private boolean weekend;
 
-    public TiketReguler(
-            String kode,
-            String judulFilm,
-            int hargaDasar,
-            boolean weekend) {
-
+    public TiketReguler(String kode, String judulFilm, int hargaDasar, boolean weekend) {
         super(kode, judulFilm, hargaDasar);
         this.weekend = weekend;
     }
