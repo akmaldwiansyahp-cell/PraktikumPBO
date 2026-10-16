@@ -2,17 +2,19 @@ package UTS;
 
 public class Studio {
     private int nomor;
+    private int kapasitas;
     private Tiket[] tiketTerjual;
     private int jumlah;
 
     public Studio(int nomor, int kapasitas) {
         this.nomor = nomor;
+        this.kapasitas = kapasitas;
         this.tiketTerjual = new Tiket[kapasitas];
         this.jumlah = 0;
     }
 
     public boolean jual(Tiket tiket) {
-        if (jumlah >= tiketTerjual.length) {
+        if (jumlah >= kapasitas) {
             return false;
         }
 
@@ -33,6 +35,10 @@ public class Studio {
 
     public int getNomor() {
         return nomor;
+    }
+
+    public int getKapasitas() {
+        return kapasitas;
     }
 
 }

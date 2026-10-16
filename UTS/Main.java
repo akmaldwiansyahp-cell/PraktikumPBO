@@ -6,11 +6,11 @@ public class Main {
         Penonton penonton = new Penonton("Budi", "08123456789");
 
         TiketReguler reguler = new TiketReguler(
-            "T001", "Avengers", 50000, true
+            "T001", "Laskar Pelangi", 40000, true
         );
 
         TiketVIP vip = new TiketVIP(
-            "T002", "Avengers", 50000
+            "T002", "Laskar Pelangi", 40000
         );
 
         reguler.setPemilik(penonton);

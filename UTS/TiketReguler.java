@@ -1,9 +1,13 @@
 package UTS;
 
-public class TiketReguler extends Tiket{
+public class TiketReguler extends Tiket {
     private boolean weekend;
 
-    public TiketReguler(String kode,String judulFilm,int hargaDasar,boolean weekend) {
+    public TiketReguler(
+            String kode,
+            String judulFilm,
+            int hargaDasar,
+            boolean weekend) {
 
         super(kode, judulFilm, hargaDasar);
         this.weekend = weekend;
@@ -12,7 +16,7 @@ public class TiketReguler extends Tiket{
     @Override
     public int hitungHarga() {
         if (weekend) {
-            return hargaDasar + (hargaDasar * 20 / 100);
+            return hargaDasar + 10000;
         }
 
         return hargaDasar;
@@ -20,6 +24,6 @@ public class TiketReguler extends Tiket{
 
     @Override
     public String getJenis() {
-        return "Tiket Reguler";
+        return "Reguler";
     }
 }

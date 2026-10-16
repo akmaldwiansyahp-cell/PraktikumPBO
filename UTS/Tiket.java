@@ -25,6 +25,6 @@ public class Tiket {
     }
 
     public String getJenis() {
-        return "Tiket Umum";
+        return "Tiket";
     }
 }

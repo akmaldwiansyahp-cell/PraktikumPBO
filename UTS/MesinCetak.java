@@ -8,19 +8,18 @@ public class MesinCetak {
     }
 
     public void cetak(Tiket tiket) {
-        System.out.println("=== TIKET BIOSKOP ===");
-        System.out.println("Mesin: " + kodeMesin);
-        System.out.println("Kode Tiket: " + tiket.kode);
-        System.out.println("Film: " + tiket.judulFilm);
-        System.out.println("Jenis: " + tiket.getJenis());
-        System.out.println("Harga: Rp" + tiket.hitungHarga());
-
         Penonton pemilik = tiket.getPemilik();
 
-        if (pemilik != null) {
-            System.out.println("Penonton: " + pemilik.getNama());
-        }
+        String namaPemilik =
+            pemilik == null ? "Belum ada" : pemilik.getNama();
 
-        System.out.println("=====================");
+        System.out.printf(
+            "[%s] %s %s | %s | Rp%d%n",
+            tiket.getJenis(),
+            tiket.kode,
+            tiket.judulFilm,
+            namaPemilik,
+            tiket.hitungHarga()
+        );
     }
 }

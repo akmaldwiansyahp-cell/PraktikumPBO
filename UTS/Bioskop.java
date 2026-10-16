@@ -5,12 +5,18 @@ public class Bioskop {
     private Studio[] daftarStudio;
     private Manajer manajer;
 
-    public Bioskop(String nama, int jumlahStudio, int kapasitas) {
+    public Bioskop(
+            String nama,
+            int jumlahStudio,
+            int kapasitas) {
+
         this.nama = nama;
         this.daftarStudio = new Studio[jumlahStudio];
 
+        // Composition: Bioskop membuat objek Studio
         for (int i = 0; i < jumlahStudio; i++) {
-            daftarStudio[i] = new Studio(i + 1, kapasitas);
+            daftarStudio[i] =
+                new Studio(i + 1, kapasitas);
         }
     }
 
@@ -18,18 +24,31 @@ public class Bioskop {
         this.manajer = manajer;
     }
 
-    public boolean jualTiket(Tiket tiket) {
-        return jualTiket(tiket, 1);
+    // Overloading: penjualan ke Studio 1
+    public void jualTiket(Tiket tiket) {
+        jualTiket(tiket, 1);
     }
 
-    public boolean jualTiket(Tiket tiket, int nomorStudio) {
+    // Overloading: penjualan ke studio tertentu
+    public void jualTiket(Tiket tiket, int nomorStudio) {
         Studio studio = getStudio(nomorStudio);
 
         if (studio == null) {
-            return false;
+            System.out.println(
+                "Studio " + nomorStudio + " tidak tersedia."
+            );
+            return;
         }
 
-        return studio.jual(tiket);
+        if (!studio.jual(tiket)) {
+            System.out.println(
+                "Studio " + nomorStudio + " sudah penuh."
+            );
+            return;
+        }
+
+        MesinCetak mesin = new MesinCetak("M001");
+        mesin.cetak(tiket);
     }
 
     public Studio getStudio(int nomor) {
@@ -41,18 +60,11 @@ public class Bioskop {
     }
 
     public void tampilInfo() {
-        System.out.println("Nama Bioskop: " + nama);
+        System.out.println("Bioskop: " + nama);
+
         System.out.println(
             "Manajer: " +
             (manajer == null ? "Belum ada" : manajer.getNama())
         );
-
-        for (Studio studio : daftarStudio) {
-            System.out.println(
-                "Studio " + studio.getNomor()
-                + " | Pendapatan: Rp"
-                + studio.hitungPendapatan()
-            );
-        }
     }
 }
