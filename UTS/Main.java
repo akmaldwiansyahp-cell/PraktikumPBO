@@ -34,8 +34,6 @@ public class Main {
 
         System.out.println("Harga tiket T-099: Rp" + t.hitungHarga());
 
-        System.out.println(
-            "Jenis tiket T-099: " + t.getJenis()
-        );
+        System.out.println("Jenis tiket T-099: " + t.getJenis());
     }
 }
