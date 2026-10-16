@@ -44,8 +44,6 @@ public class Bioskop {
             return;
         }
 
-        MesinCetak mesin = new MesinCetak("M001");
-        mesin.cetak(tiket);
     }
 
     public Studio getStudio(int nomor) {
