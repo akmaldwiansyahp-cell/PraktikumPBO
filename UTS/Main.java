@@ -39,6 +39,6 @@ public class Main {
 
         Tiket t = new TiketVIP("T-099", "Dilan", 50000);
 
-        System.out.println("Harga Tiket: "t.hitungHarga());
+        System.out.println("Harga Tiket: " + t.hitungHarga());
     }
 }
