@@ -13,7 +13,7 @@ public class Main {
 
         TiketReguler reguler = new TiketReguler("T-001", "Laskar Pelangi", 40000, true);
 
-        TiketVIP vip = new TiketVIP("T-002", "Laskar Pelangi", 80000);
+        TiketVIP vip = new TiketVIP("T-002", "Laskar Pelangi", 40000);
 
         reguler.setPemilik(andi);
         vip.setPemilik(sinta);
